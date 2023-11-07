@@ -1,4 +1,12 @@
 <?php
+/*if (function_exists('gd_info')) {
+    echo 'GD is supported.';
+} else {
+    echo 'GD is not supported.';
+}*/
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // Ruta de la carpeta que contiene las imágenes
 $imageFolder = 'images/';
 

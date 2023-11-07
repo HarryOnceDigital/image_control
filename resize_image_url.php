@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // URL de la imagen (puede ser proporcionado en la URL)
 $imageUrl = isset($_GET['url']) ? $_GET['url'] : '';
 $filename = isset($_GET['file']) ? $_GET['file'] : '';
@@ -37,6 +40,14 @@ if (!empty($imageUrl)) {
     $imageFolder = 'images/';
     // Ruta completa de la imagen
     $imagePath = $imageFolder . $filename;
+    // Manejar el error de descarga de datos
+    $error = error_get_last();
+    if ($error !== null) {
+        // Mostrar información de error
+        echo "Error al descargar los datos de la imagen: " . $error['message'];
+    } else {
+        echo "Error desconocido al descargar los datos de la imagen.";
+    }
 }
 
 // Obtener el ancho y alto de la imagen original
